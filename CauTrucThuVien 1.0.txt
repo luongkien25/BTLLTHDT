@@ -1,0 +1,107 @@
++---------------------------------------------------------------------+
+|                              Library                   |
++---------------------------------------------------------------------+
+| - items: ArrayList<LibraryItem>                                     |
+| - users: ArrayList<LibraryUser>                                     |
++---------------------------------------------------------------------+
+| + getInstance(): Library                                            |
+| + addItem(item: LibraryItem): void                                  |
+| + removeItem(item: LibraryItem): void                               |
+| + findItemByTitle(title: String): LibraryItem                       |
+| + findItemByIsbn(isbn: String): LibraryItem                         |
+| + addUser(user: LibraryUser): void                                  |
+| + removeUser(user: LibraryUser): void                               |
+| + findUserById(userId: String): LibraryUser                         |
+| + getItems(): List<LibraryItem>                                     |
+| + getUsers(): List<LibraryUser>                                     |
++---------------------------------------------------------------------+
+                                    ▲
+                                    |
+              +---------------------+--------------------+
+              |                                          |
++-----------------------------+            +-------------------------------+
+|     <interface> LibraryItem              |<interface> LibraryUser        |
++-----------------------------+            +-------------------------------+
+| + getTitle(): String        |            | + getUserId(): String         |
+| + setTitle(title): void     |            | + setUserId(id): void         |
+| + getDescription(): String  |            | + getName(): String           |
+| + setDescription(desc):void |            | + setName(name): void         |
+| + getIsbn(): String         |            | + getBorrowRecord(): List     |
+| + setIsbn(isbn): void       |            | + borrowBook(book): void      |
+| + getQuantity(): int        |            | + returnBook(book): void      |
+| + setQuantity(qty): void    |            | + toString(): String          |
+| + toString(): String        |            +-------------------------------+
++-----------------------------+
+         ▲
+         |
++----------------------------------------+
+|                Book                    |
++----------------------------------------+
+| - title: String                        |
+| - authors: String                      |
+| - category: String                     |
+| - isbn: String                         |
+| - quantity: int                        |
++----------------------------------------+
+| + toString(): String                   |
++----------------------------------------+
+
++----------------------------------------+
+|                 User                   |
++----------------------------------------+
+| - userId: String                       |
+| - name: String                         |
+| - borrowRecord: List<BorrowRecord>    |
++----------------------------------------+
+| + borrowBook(book: Book): void         |
+| + returnBook(book: Book): void         |
+| + getBorrowRecord(): List              |
+| + toString(): String                   |
++----------------------------------------+
+
++----------------------------------------+
+|             BorrowRecord               |
++----------------------------------------+
+| - book: Book                           |
+| - borrowDate: Date                     |
++----------------------------------------+
+| + getBook(): Book                      |
+| + getBorrowDate(): Date                |
++----------------------------------------+
+
++----------------------------------------+
+|            GoogleBooksAPI              |
++----------------------------------------+
+| + searchBooks(keyword): List<Book>     |
++----------------------------------------+
+|  Gọi Google Books API và parse JSON  |
++----------------------------------------+
+
++----------------------------------------+
+|              LibraryGUI                |
++----------------------------------------+
+| - library: Library                     |
++----------------------------------------+
+| + addDocument(): void                  |
+| + removeDocument(): void               |
+| + updateDocument(): void               |
+| + findDocument(): void                 |
+| + displayDocuments(): void             |
+| + addUser(): void                      |
+| + borrowDocument(): void               |
+| + returnDocument(): void               |
+| + displayUserInfo(): void              |
+| + displayBorrowRecords(): void         |
+| + searchGoogleBooks(): void            |
++----------------------------------------+
+
++----------------------+
+|        Main          |
++----------------------+
+| + main(args): void   |
++----------------------+
+|  Chạy LibraryGUI   |
++----------------------+
+
+
+
